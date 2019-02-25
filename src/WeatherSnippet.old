@@ -1,6 +1,20 @@
- 
-    console.log("HERES WEATHER")
-    console.log(this.props.weather)
+import React, { Component } from 'react'
+import ReactAnimatedWeather from 'react-animated-weather';
+
+class WeatherSnippet extends Component {
+  const defaults = {
+    icon: 'CLEAR_DAY',
+    color: 'goldenrod',
+    size: 512,
+    animate: true
+  };
+
+
+  render() {
+    let iconName = this.props.icon;
+    //let icon = iconName.toUpperCase();
+    console.log(iconName);
+    console.log(this.props.weather);
 
     return (
       
@@ -16,11 +30,11 @@
     <div className="media">
       <div className="media-left">
         <figure className="image is-48x48">
-          <ReactAnimatedWeather icon={this.weatherIcon}/> 
+          <ReactAnimatedWeather icon={defaults.icon}/> 
         </figure>
       </div>
       <div className="media-content">
-        <p className="title is-4"></p>
+        <p className="title is-4">{this.props.summary}</p>
         <p className="subtitle is-6">@johnsmith</p>
       </div>
     </div>
@@ -38,3 +52,6 @@
 </div>
 
     )
+  }
+}
+export default WeatherSnippet;
